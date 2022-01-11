@@ -1,0 +1,17 @@
+.circle {
+    border-radius: 4px;
+    background-color: #3cb46e;
+    width: 5px;
+    padding: 4px;
+    margin: 4px;
+
+}
+.open_btn {
+    align-items: center;
+    border-radius: 4px;
+    display: inline-flex;
+    font-size: 14px;
+    padding: 1px 9px;
+    background-color: #c2ebd3;
+    cursor: pointer;
+}

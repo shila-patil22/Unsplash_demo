@@ -1,0 +1,18 @@
+.explore_link{
+    padding:0 15px ;
+    display: flex;
+    align-items: center;
+    color: #767676;
+}
+.popover_btn:focus-within{
+    outline: none;
+}
+.popover_btn:hover{
+    color: #111;
+    cursor: pointer;
+}
+.popover_body{
+    width:150px;
+    height:60px;
+}
+
