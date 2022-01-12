@@ -4,8 +4,7 @@ import { OpenBtn } from '../OpenBtn'
 import { ShowStatusImges } from '../ShowStatusImges'
 import './style.css'
 
-export const ShowStatus = ({ statusImgs }) => {
-    console.log(statusImgs, "statusImgsstatusImgs");
+export const ShowStatus = ({ statusImgsData }) => {
     return (
         <div className="showstatus_wrapper">
             <div className="showstatus_row">
@@ -13,7 +12,7 @@ export const ShowStatus = ({ statusImgs }) => {
                     <Zap color='#d1d1d1' width='18px' />
                     <span className='ps-2'>Status</span>
                 </div>
-                <OpenBtn />
+                <OpenBtn statusImgsData={statusImgsData}/>
             </div>
             <hr />
             <div className="showstatus_row">
@@ -21,7 +20,7 @@ export const ShowStatus = ({ statusImgs }) => {
                     <User color='#d1d1d1' width='18px' />
                     <span className='ps-2'>Curator</span>
                 </div>
-                <ShowStatusImges  imgsrc={statusImgs}/>
+                <ShowStatusImges imgsrc={statusImgsData.owners} />
             </div>
             <hr />
             <div className="showstatus_row">
@@ -29,7 +28,7 @@ export const ShowStatus = ({ statusImgs }) => {
                     <Image color='#d1d1d1' width='18px' />
                     <span className='ps-2'>Contributions</span>
                 </div>
-                <span>1423</span>
+                <span>{statusImgsData.total_photos}</span>
             </div>
             <hr />
             <div className="showstatus_row">
@@ -37,10 +36,8 @@ export const ShowStatus = ({ statusImgs }) => {
                     <Users color='#d1d1d1' width='18px' />
                     <span className='ps-2'>Top contributors</span>
                 </div>
-                <div className='d-flex justify-content-between w-50'>
-                <ShowStatusImges multipleImg />
-                    
-
+                <div className='d-flex justify-content-end w-50'>
+                    <ShowStatusImges imgsrc={statusImgsData.top_contributors} />
                 </div>
             </div>
 

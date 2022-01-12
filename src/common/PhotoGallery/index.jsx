@@ -1,11 +1,11 @@
 import React from 'react'
-import  './style.css'
+import './style.css'
 
-export const PhotoGallery = ({imgurls}) => {
+export const PhotoGallery = ({ imgurls }) => {
     return (
-        
-        <div className='topic_photos_wrapper card col-lg-4 thumbnail col-sm-6 img-fluid'>
-            <img src={imgurls} class="card-img-top" alt=''/>
+
+        <div className='topic_photos_wrapper img-fluid pb-3'>
+            <img src={imgurls} className='w-100' alt='' />
         </div>
     )
 }
