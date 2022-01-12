@@ -10,12 +10,10 @@ export default function App() {
   return (
     <Router>
       <AppLayout>
+            <NavlinkRender />
         <Switch>
           <Route exact path="/">
-          <>
-          <NavlinkRender />
             <Editorial />
-          </>
           </Route>
           <Route exact path="/t/:topics">
             <Topics />

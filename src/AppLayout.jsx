@@ -9,11 +9,11 @@ export const AppLayout = ({ children }) => {
     useEffect(() => {
         if (location.pathname === '/demo'){
             setIsHeaderVisible(false)
-        console.log(location, "location----");
+        // console.log(location, "location----");
         }
 
     }, [location])
-    console.log(isHeaderVisible,"ishdrg");
+    // console.log(isHeaderVisible,"ishdrg");
     return (
         <>
             {

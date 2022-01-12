@@ -45,7 +45,7 @@ const settings = {
 };
 export const NavlinkRender = () => {
     const { data } = useGetUnsplashnByNameQuery()
-  
+
     return (
         <div className='navlink_menu_wrapper row'>
             <div className="editorial border-end pe-3  ">

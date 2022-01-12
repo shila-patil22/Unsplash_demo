@@ -1,66 +1,63 @@
-.editorial{
-    max-width: 5%;
-    width: 100%;
+.editorial {
+  width:5% !important;
 }
 .navlink_menu {
-    text-decoration: none;
-    font-size: 14px;
-    color: #767676;
-    font-weight: 500;
-    background: #fff;
-    position: sticky;
-    cursor: pointer;
-    padding: 21px 0px;
+  text-decoration: none;
+  font-size: 14px;
+  color: #767676;
+  font-weight: 500;
+  background: #fff;
+  position: sticky;
+  cursor: pointer;
+  padding: 21px 0px;
 }
 .slick-list {
-    padding: 0 30px;
+  padding: 0 30px;
 }
 .navlink_menu:focus {
-    color: #111;
-    border-bottom: 2px solid; 
+  color: #111;
+  border-bottom: 2px solid;
 }
 .navlink_menu:hover {
-    color: #111;
+  color: #111;
 }
-.navlink_menu_wrapper{
-    margin:0 auto; 
-    box-shadow: 0 4px 12px #00000014, 0 0 1px #0100001a;
-    padding: 0 14px;
-    min-height: 64px;
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
+.navlink_menu_wrapper {
+  margin: 0 auto;
+  box-shadow: 0 4px 12px #00000014, 0 0 1px #0100001a;
+  padding: 0 20px;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
 }
 .all_menu_container {
-    width: 100%;
-    max-width: 95%;
-    margin: 0 auto;
-    text-align: center;
+  width: 95% !important;
+  margin: 0 auto;
+  text-align: center;
 }
-
 .slick-prev {
-    left: 0% !important;
-    z-index: 1;
+  left: 0% !important;
+  z-index: 1;
 }
 .slick-arrow::before {
-   color: black !important;
+  color: black !important;
 }
-
 .slick-next {
-   right: 0% !important;
-   z-index: 1; 
+  right: 0% !important;
+  z-index: 1;
 }
 .slick-next:before {
-    content: '>';
-    color: #767676; 
-    font-weight: 700;   
+  content: ">";
+  color: #767676;
+  font-weight: 700;
 }
-.slick-prev:before{
-    content: '<';
-    color: #767676
+.slick-prev:before {
+  content: "<";
+  color: #767676;
 }
-.slick-track{
-    align-items: center !important;
-    display: flex;
-    justify-content: space-between;
+.slick-track {
+  align-items: center !important;
+  display: flex;
+  justify-content: space-between;
 }

@@ -1,13 +1,11 @@
 import React from 'react'
-import { useGetUnsplashTopicPhotosQuery } from '../../Redux/reduxApiCalling'
+import  './style.css'
 
-export const index = () => {
-    const {data}=useGetUnsplashTopicPhotosQuery
-
-    console.log("data",data);
+export const PhotoGallery = ({imgurls}) => {
     return (
-        <div>
-            
+        
+        <div className='topic_photos_wrapper card col-lg-4 thumbnail col-sm-6 img-fluid'>
+            <img src={imgurls} class="card-img-top" alt=''/>
         </div>
     )
 }
