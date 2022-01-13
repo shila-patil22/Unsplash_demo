@@ -1,5 +1,5 @@
 .hero_img {
-  background-image: url("../../../public/hero.jpeg");
+  background-image: url("https://images.unsplash.com/photo-1640374370020-f9d527a6918f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1vZi10aGUtZGF5fHx8fGVufDB8fHx8&auto=format%2Ccompress&fit=crop&w=1000&h=1000");
   min-height: 600px;
   background-position: center;
   object-fit: cover;
@@ -7,7 +7,6 @@
   background-size: cover;
   position: relative;
 }
-
 .hero_text {
   padding: 0 15px;
   max-width: 700px;

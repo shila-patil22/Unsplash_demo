@@ -14,7 +14,7 @@ export const unsplashApi = createApi({
     }),
     getUnsplashTopicPhotos: builder.query({
       query: (params) =>
-        `topics/${params}/photos?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
+        `topics/${params}/photos/?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
     })
   })
 });
@@ -23,4 +23,5 @@ export const {
   useGetUnsplashnByNameQuery,
   useGetUnsplashTopicDescQuery,
   useGetUnsplashTopicPhotosQuery
+  
 } = unsplashApi;
