@@ -1,0 +1,12 @@
+.search_menu{
+    cursor: pointer;
+    padding: 15px 2px;
+    color: #767676;
+
+}
+.search_menu:focus-within{
+    border-bottom: 3px solid black;
+}
+.search_menu:hover{
+    color: #111;
+}
