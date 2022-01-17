@@ -11,7 +11,7 @@ export const SearchPhoto = () => {
     return (
         <div>
             <PhotosAndCollection />
-            <h1>{photo}</h1>
+            <h1 className='text-capitalize w-75 mx-auto fw-bold'>{photo}</h1>
             <div className="photo_gallery">
                 {
                     !isLoading && searchPhotoData?.results?.map((photos, i) => {

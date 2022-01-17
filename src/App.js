@@ -3,9 +3,9 @@ import { Editorial } from "./Menu/Editorial";
 import { Topics } from "./Menu/Topics";
 import { AppLayout } from "./AppLayout";
 import { NavbarCom } from "./Navbar";
-import "./App.css";
 import { SearchPhoto } from "./Menu/SearchPhoto";
 import { SearchCollection } from "./Menu/SearchCollection";
+import "./App.css";
 
 export default function App() {
   return (

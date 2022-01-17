@@ -5,7 +5,6 @@ import './style.css'
 
 export const SearchBar = ({ round }) => {
     const [searchTerm, setSearchTerm] = useState('')
-    console.log(searchTerm, "---------------");
     const history = useHistory()
 
     return (

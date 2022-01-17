@@ -7,7 +7,8 @@ export const AppLayout = ({ children }) => {
     const location = useLocation()
 
     useEffect(() => {
-        if (location.pathname === '/s/:photos'){
+        const loc = location.pathname.split('/')
+        if (loc[2]) {
             setIsHeaderVisible(false)
         }
     }, [location])
