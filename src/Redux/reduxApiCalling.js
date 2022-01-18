@@ -15,6 +15,18 @@ export const unsplashApi = createApi({
     getUnsplashTopicPhotos: builder.query({
       query: (params) =>
         `topics/${params}/photos/?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
+    }),
+    getUnsplashHomePhotos: builder.query({
+      query: () =>
+        `photos/?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
+    }),
+    getUnsplashSearchPhotos: builder.query({
+      query: (params) =>
+        `search/photos?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}&query=${params}`
+    }),
+    getUnsplashSearchCollection: builder.query({
+      query: (params) =>
+        `search/collections?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}&query=${params}`
     })
   })
 });
@@ -22,6 +34,8 @@ export const unsplashApi = createApi({
 export const {
   useGetUnsplashnByNameQuery,
   useGetUnsplashTopicDescQuery,
-  useGetUnsplashTopicPhotosQuery
-  
+  useGetUnsplashTopicPhotosQuery,
+  useGetUnsplashSearchPhotosQuery,
+  useGetUnsplashHomePhotosQuery,
+  useGetUnsplashSearchCollectionQuery
 } = unsplashApi;

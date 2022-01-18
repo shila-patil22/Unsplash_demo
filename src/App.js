@@ -1,16 +1,16 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Editorial } from "./Menu/Editorial";
 import { Topics } from "./Menu/Topics";
-import { NavlinkRender } from "./Menu/NavlinkRender";
-import "./App.css";
-import { Demo } from "./Menu/Demo";
 import { AppLayout } from "./AppLayout";
+import { NavbarCom } from "./Navbar";
+import { SearchPhoto } from "./Menu/SearchPhoto";
+import "./App.css";
 
 export default function App() {
   return (
     <Router>
+      <NavbarCom />
       <AppLayout>
-            <NavlinkRender />
         <Switch>
           <Route exact path="/">
             <Editorial />
@@ -18,8 +18,11 @@ export default function App() {
           <Route exact path="/t/:topics">
             <Topics />
           </Route>
-          <Route exact path="/demo">
-            <Demo />
+          <Route exact path="/s/photos/:photo">
+            <SearchPhoto type/>
+          </Route>
+          <Route exact path="/s/collections/:photo">
+            <SearchPhoto/>
           </Route>
         </Switch>
       </AppLayout>

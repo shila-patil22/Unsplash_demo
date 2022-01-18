@@ -7,8 +7,8 @@ export const ShowStatusImges = ({ imgsrc }) => {
             {
                 imgsrc?.map((data, i) =>
                     imgsrc.length > 1 ?
-                        <img key={i} className='rounded-circle' src={data.profile_image.small} alt="" /> :
-                        <img key={i} className='rounded-circle' src={data.profile_image.medium} alt="" />
+                        <img key={i} className='rounded-circle ms-1' src={data.profile_image.small} alt="" /> :
+                        <img key={i} className='rounded-circle w-25' src={data.profile_image.medium} alt="" />
                 )
             }
         </div>

@@ -6,7 +6,6 @@ import { Menu, Facebook, Instagram, Twitter } from 'react-feather';
 import { Popover, PopoverBody } from 'reactstrap';
 import './style.css'
 
-
 export const NavbarCom = () => {
     const [popoverOpen, setPopoverOpen] = useState(false);
     const toggle = () => setPopoverOpen(!popoverOpen);
