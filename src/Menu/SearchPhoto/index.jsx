@@ -7,36 +7,36 @@ import { useGetUnsplashSearchPhotosQuery } from '../../Redux/reduxApiCalling'
 import { useGetUnsplashSearchCollectionQuery } from '../../Redux/reduxApiCalling';
 
 
-export const SearchPhoto = ({type}) => {
+export const SearchPhoto = ({ type }) => {
     const { photo } = useParams()
-    const { data: searchPhotoData, isLoading:isPhoto } = useGetUnsplashSearchPhotosQuery(photo)
-    const { data: searchCollectionData, isLoading:isCollection } = useGetUnsplashSearchCollectionQuery(photo)
-
+    const { data: searchPhotoData, isLoading: isPhoto } = useGetUnsplashSearchPhotosQuery(photo)
+    const { data: searchCollectionData, isLoading: isCollection } = useGetUnsplashSearchCollectionQuery(photo)
+    console.log(searchCollectionData, "searchCollectionData");
 
     return (
         <div>
             <PhotosAndCollection />
             <h1 className='text-capitalize w-75 mx-auto fw-bold'>{photo}</h1>
             {
-                type==="photo"?<div className="photo_gallery">
-                {
-                    !isPhoto && searchPhotoData?.results?.map((photos, i) => {
-                        return (
-                            <PhotoGallery key={i} imgurls={photos.urls.regular} />
-                        )
-                    })
-                }
-            </div>:<div className="photo_gallery">
-                {
-                    !isCollection && searchCollectionData?.results?.map((photos, i) => {
-                        return (
-                            <CollectionImgs key={i} imgurls={photos?.preview_photos} />
-                        )
-                    })
-                }
-            </div>
+                type ? <div className="photo_gallery">
+                    {
+                        !isPhoto && searchPhotoData?.results?.map((photos, i) => {
+                            return (
+                                <PhotoGallery key={i} imgurls={photos.urls.regular} />
+                            )
+                        })
+                    }
+                </div> : <div className="photo_gallery">
+                    {
+                        !isCollection && searchCollectionData?.results?.map((photos, i) => {
+                            return (
+                                <CollectionImgs key={i} imgurls={photos?.preview_photos} />
+                            )
+                        })
+                    }
+                </div>
             }
-            
+
         </div>
     )
 }

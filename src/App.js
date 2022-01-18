@@ -19,7 +19,7 @@ export default function App() {
             <Topics />
           </Route>
           <Route exact path="/s/photos/:photo">
-            <SearchPhoto type="photo"/>
+            <SearchPhoto type/>
           </Route>
           <Route exact path="/s/collections/:photo">
             <SearchPhoto/>
