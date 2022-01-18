@@ -4,7 +4,6 @@ import { Topics } from "./Menu/Topics";
 import { AppLayout } from "./AppLayout";
 import { NavbarCom } from "./Navbar";
 import { SearchPhoto } from "./Menu/SearchPhoto";
-import { SearchCollection } from "./Menu/SearchCollection";
 import "./App.css";
 
 export default function App() {
@@ -20,10 +19,10 @@ export default function App() {
             <Topics />
           </Route>
           <Route exact path="/s/photos/:photo">
-            <SearchPhoto />
+            <SearchPhoto type="photo"/>
           </Route>
           <Route exact path="/s/collections/:photo">
-            <SearchCollection />
+            <SearchPhoto/>
           </Route>
         </Switch>
       </AppLayout>

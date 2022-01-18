@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Check, ChevronDown } from 'react-feather';
 import { ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import './style.css'
+
 
 export const PhotoOrientationColor = ({ title, items }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,9 +14,10 @@ export const PhotoOrientationColor = ({ title, items }) => {
                 setIsOpen(!isOpen);
             }}
             direction="down"
+            className='dropdown'
         >
             <DropdownToggle style={{ background: 'transparent', color: 'black', border: 'none' }} >
-                <span style={{ color: '#6c757d' }}>{title}</span><ChevronDown width={16} className='ms-1' />
+                <span style={{ color: '#6c757d' }}>{title}</span><ChevronDown width={16} className='me-3' />
             </DropdownToggle>
             <DropdownMenu>
                 <div className='d-flex align-items-center ps-1' >

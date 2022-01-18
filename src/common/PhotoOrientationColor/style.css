@@ -1,0 +1,10 @@
+.btn {
+  padding: 0 !important;
+}
+.btn-check:focus + .btn-secondary,
+.btn-secondary:focus {
+  box-shadow: none;
+}
+.btn-secondary:active:focus {
+  box-shadow: none;
+}

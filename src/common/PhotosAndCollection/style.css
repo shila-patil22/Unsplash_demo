@@ -2,8 +2,9 @@
   display: flex;
 }
 .search_menu:focus-within {
-  border-bottom: 3px solid #111;
+  border-bottom: 2px solid #111;
+  color: #111;
 }
 a.text-decoration-none.link-secondary {
-  padding-bottom: 5px;
+  padding-bottom: 16px;
 }

@@ -5,10 +5,9 @@ import { NavlinkRender } from './Menu/NavlinkRender'
 export const AppLayout = ({ children }) => {
     const [isHeaderVisible, setIsHeaderVisible] = useState(true)
     const location = useLocation()
-
     useEffect(() => {
-        const loc = location.pathname.split('/')
-        if (loc[2]) {
+        const loc = location.pathname.split('/photo')
+        if (loc[1]) {
             setIsHeaderVisible(false)
         }
     }, [location])
