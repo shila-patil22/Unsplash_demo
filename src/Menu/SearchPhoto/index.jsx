@@ -1,38 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { CollectionImgs } from '../../common/CollectionImgs'
 import { PhotoGallery } from '../../common/PhotoGallery'
 import { PhotosAndCollection } from '../../common/PhotosAndCollection'
-import { useGetUnsplashSearchPhotosQuery } from '../../Redux/reduxApiCalling'
+import { useLazyGetUnsplashSearchPhotosQuery } from '../../Redux/reduxApiCalling'
 import { useGetUnsplashSearchCollectionQuery } from '../../Redux/reduxApiCalling';
+import { TailSpin } from 'react-loader-spinner'
+import './style.css'
 
-
-export const SearchPhoto = ({ type }) => {
+export const SearchPhoto = ({ isPhoto }) => {
     const { photo } = useParams()
-    const { data: searchPhotoData, isLoading: isPhoto } = useGetUnsplashSearchPhotosQuery(photo)
+    const [dropdownParam, setdropdownParam] = useState({ query: photo })
     const { data: searchCollectionData, isLoading: isCollection } = useGetUnsplashSearchCollectionQuery(photo)
-    console.log(searchCollectionData, "searchCollectionData");
+    const [getData, { data: searchPhotoData, isLoading: isPhotodata }] = useLazyGetUnsplashSearchPhotosQuery(photo);
 
+    useEffect(() => {
+        getData(dropdownParam)
+    }, [dropdownParam])
+    useEffect(() => {
+        setdropdownParam({...dropdownParam, query: photo})
+    }, [photo])
     return (
         <div>
-            <PhotosAndCollection />
+            <PhotosAndCollection setdropdownParam={setdropdownParam} dropdownParam={dropdownParam} />
             <h1 className='text-capitalize w-75 mx-auto fw-bold'>{photo}</h1>
             {
-                type ? <div className="photo_gallery">
+                isPhoto ? <div className="photo_gallery">
                     {
-                        !isPhoto && searchPhotoData?.results?.map((photos, i) => {
+                        !isPhotodata ? searchPhotoData?.results?.map((photos, i) => {
                             return (
                                 <PhotoGallery key={i} imgurls={photos.urls.regular} />
                             )
-                        })
+                        }) : <TailSpin
+                            heigth="100"
+                            width="100"
+                            color='grey'
+                            arialLabel='loading'
+                        />
                     }
-                </div> : <div className="photo_gallery">
+                </div> : <div className="collection_photo_gallery ">
                     {
-                        !isCollection && searchCollectionData?.results?.map((photos, i) => {
+                        !isCollection ? searchCollectionData?.results?.map((photos, i) => {
                             return (
-                                <CollectionImgs key={i} imgurls={photos?.preview_photos} />
+                                <CollectionImgs key={i} collectionData={photos} />
                             )
-                        })
+                        }) : <TailSpin
+                            heigth="100"
+                            width="100"
+                            color='grey'
+                            arialLabel='loading'
+                        />
                     }
                 </div>
             }

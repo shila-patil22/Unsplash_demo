@@ -20,22 +20,37 @@ export const unsplashApi = createApi({
       query: () =>
         `photos/?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
     }),
-    getUnsplashSearchPhotos: builder.query({
-      query: (params) =>
-        `search/photos?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}&query=${params}`
-    }),
     getUnsplashSearchCollection: builder.query({
       query: (params) =>
         `search/collections?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}&query=${params}`
-    })
+    }),
+    getUnsplashSearchPhotos: builder.query({
+      query: (params) => {
+        let url = `search/photos?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}&query=${params.query}`;
+        return {
+          url:
+            params.orientation && params.order_by
+              ? `${url}&orientation=${params.orientation}&order_by=${params.order_by}`
+              : params.orientation
+              ? `${url}&orientation=${params.orientation}`
+              : params.order_by
+              ? `${url}&order_by=${params.order_by}`
+              : `${url}`
+        };
+      }
+    }),
+    getUnsplashCollectionImgs: builder.query({
+      query: (params) =>
+        `collections/${params}/photos?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
+    }),
   })
 });
-
 export const {
   useGetUnsplashnByNameQuery,
   useGetUnsplashTopicDescQuery,
   useGetUnsplashTopicPhotosQuery,
-  useGetUnsplashSearchPhotosQuery,
   useGetUnsplashHomePhotosQuery,
-  useGetUnsplashSearchCollectionQuery
+  useLazyGetUnsplashSearchPhotosQuery,
+  useGetUnsplashSearchCollectionQuery,
+  useGetUnsplashCollectionImgsQuery
 } = unsplashApi;
