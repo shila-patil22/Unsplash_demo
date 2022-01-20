@@ -4,6 +4,8 @@ import { Topics } from "./Menu/Topics";
 import { AppLayout } from "./AppLayout";
 import { NavbarCom } from "./Navbar";
 import { SearchPhoto } from "./Menu/SearchPhoto";
+import { CollectionPhotosDisplay } from "./Menu/CollectionPhotosDisplay";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./App.css";
 
 export default function App() {
@@ -19,10 +21,13 @@ export default function App() {
             <Topics />
           </Route>
           <Route exact path="/s/photos/:photo">
-            <SearchPhoto type/>
+            <SearchPhoto isPhoto />
           </Route>
           <Route exact path="/s/collections/:photo">
-            <SearchPhoto/>
+            <SearchPhoto />
+          </Route>
+          <Route exact path="/collections/:id">
+            <CollectionPhotosDisplay />
           </Route>
         </Switch>
       </AppLayout>

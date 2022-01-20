@@ -2,18 +2,27 @@
   display: grid;
   grid-template-columns: 250px minmax(90px, 120px);
   grid-template-rows: repeat(2, 125px);
-  grid-gap: 10px;
-  grid-gap: 2px;
   gap: 2px;
 }
-img.index-0 {
+.index-0 {
   grid-row-start: 1;
   grid-row-end: -1;
   width: 100%;
   height: 100%;
+  border-radius: 8px 0 0 8px;
 }
-img.index-1,
-img.index-2 {
+.index-1,
+.index-2 {
   height: 100%;
   width: 100%;
+  border-radius: 0 8px 0 0;
+}
+.index-2{
+  border-radius: 0 0 8px 0;
+}
+.photos_wrapper {
+  cursor: pointer;
+}
+.photos_wrapper:hover {
+  opacity: 0.8;
 }
