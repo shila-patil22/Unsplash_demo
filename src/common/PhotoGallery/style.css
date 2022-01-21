@@ -2,4 +2,17 @@
   max-width: 100% !important;
   width: 100% !important;
   display: block !important;
+  cursor: zoom-in;
+}
+.modal-dialog {
+  max-width: 1500px !important;
+  width: 100%;
+  margin: 0 auto !important;
+}
+.modal-dialog img {
+  width: 300px !important;
+}
+.modal-body{
+  margin: 20px auto !important;
+
 }

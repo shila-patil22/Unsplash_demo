@@ -43,6 +43,14 @@ export const unsplashApi = createApi({
       query: (params) =>
         `collections/${params}/photos?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
     }),
+    getUnsplashPhotoDetails: builder.query({
+      query: (params) =>
+        `photos/${params}?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
+    }),
+    getUnsplashRelatedCollection: builder.query({
+      query: (params) =>
+        `photos/${params}/related?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
+    })
   })
 });
 export const {
@@ -52,5 +60,7 @@ export const {
   useGetUnsplashHomePhotosQuery,
   useLazyGetUnsplashSearchPhotosQuery,
   useGetUnsplashSearchCollectionQuery,
-  useGetUnsplashCollectionImgsQuery
+  useGetUnsplashCollectionImgsQuery,
+  useLazyGetUnsplashPhotoDetailsQuery,
+  useLazyGetUnsplashRelatedCollectionQuery
 } = unsplashApi;

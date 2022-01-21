@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom'
 import { CollectionImgs } from '../../common/CollectionImgs'
 import { PhotoGallery } from '../../common/PhotoGallery'
 import { PhotosAndCollection } from '../../common/PhotosAndCollection'
-import { useLazyGetUnsplashSearchPhotosQuery } from '../../Redux/reduxApiCalling'
-import { useGetUnsplashSearchCollectionQuery } from '../../Redux/reduxApiCalling';
+import { useLazyGetUnsplashSearchPhotosQuery, useGetUnsplashSearchCollectionQuery } from '../../Redux/reduxApiCalling'
 import { TailSpin } from 'react-loader-spinner'
 import './style.css'
 
@@ -18,10 +17,12 @@ export const SearchPhoto = ({ isPhoto }) => {
         getData(dropdownParam)
     }, [dropdownParam])
     useEffect(() => {
-        setdropdownParam({...dropdownParam, query: photo})
+        setdropdownParam({ ...dropdownParam, query: photo })
     }, [photo])
+   
     return (
         <div>
+
             <PhotosAndCollection setdropdownParam={setdropdownParam} dropdownParam={dropdownParam} />
             <h1 className='text-capitalize w-75 mx-auto fw-bold'>{photo}</h1>
             {
@@ -29,7 +30,7 @@ export const SearchPhoto = ({ isPhoto }) => {
                     {
                         !isPhotodata ? searchPhotoData?.results?.map((photos, i) => {
                             return (
-                                <PhotoGallery key={i} imgurls={photos.urls.regular} />
+                                <PhotoGallery key={i} imgurls={photos?.urls?.regular} imgId={photos?.id} />
                             )
                         }) : <TailSpin
                             heigth="100"
