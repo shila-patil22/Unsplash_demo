@@ -4,6 +4,7 @@ import { Calendar, Camera, CheckSquare, MapPin } from 'react-feather'
 import { TailSpin } from 'react-loader-spinner'
 import { Modal, ModalBody } from 'reactstrap'
 import { useLazyGetUnsplashPhotoDetailsQuery, useLazyGetUnsplashRelatedCollectionQuery, } from '../../Redux/reduxApiCalling'
+import { CollectionImgs } from '../CollectionImgs'
 import './style.css'
 
 export const PhotoGallery = ({ imgurls, imgId }) => {
@@ -14,10 +15,10 @@ export const PhotoGallery = ({ imgurls, imgId }) => {
     const toggle = () => {
         setModalIsOpen(!modalIsOpen)
     };
+
     useEffect(() => {
         modalIsOpen && getImgDetail(imgId)
         modalIsOpen && getCollection(imgId)
-
     }, [modalIsOpen])
     return (
         <>
@@ -31,7 +32,7 @@ export const PhotoGallery = ({ imgurls, imgId }) => {
                 toggle={toggle}
             >
                 <ModalBody>
-                    <img src={imgurls} className='w-100' alt='' />
+                    <img src={photoDetail?.urls?.small} className='w-100' alt='' />
                 </ModalBody>
                 <div className=" d-flex  w-50">
                     {photoDetail?.views && <div className='d-flex flex-column mx-4'><div style={{ color: '#767676' }}>View:</div> {photoDetail?.views}</div>}
@@ -47,6 +48,20 @@ export const PhotoGallery = ({ imgurls, imgId }) => {
                         !isRelatedCollection ? relatedCollection?.results?.map((photos, i) => {
                             return (
                                 <PhotoGallery key={i} imgurls={photos?.urls?.regular} imgId={photos?.id} />
+                            )
+                        }) : <TailSpin
+                            heigth="100"
+                            width="100"
+                            color='grey'
+                            arialLabel='loading'
+                        />
+                    }
+                </div>
+                <div className="collection_photo_gallery ">
+                    {
+                        !isPhotoDetail ? photoDetail?.related_collections?.results?.map((photos, i) => {
+                            return (
+                                <CollectionImgs key={i} collectionData={photos} />
                             )
                         }) : <TailSpin
                             heigth="100"

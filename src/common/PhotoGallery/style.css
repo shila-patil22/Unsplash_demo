@@ -9,10 +9,6 @@
   width: 100%;
   margin: 0 auto !important;
 }
-.modal-dialog img {
-  width: 300px !important;
-}
-.modal-body{
+.modal-body {
   margin: 20px auto !important;
-
 }

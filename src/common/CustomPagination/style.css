@@ -1,0 +1,15 @@
+.pageNumbers {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  max-width: 600px;
+  width: 100%;
+  margin: 30px auto;
+  cursor: pointer;
+  color: rgb(70, 67, 67);
+}
+.pageNumbers li.active {
+  padding: 0 7px;
+  color: black;
+  font-weight: 700;
+}

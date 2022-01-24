@@ -26,7 +26,7 @@ export const unsplashApi = createApi({
     }),
     getUnsplashSearchPhotos: builder.query({
       query: (params) => {
-        let url = `search/photos?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}&query=${params.query}`;
+        let url = `search/photos?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}&page=${params.page}&query=${params.query}`;
         return {
           url:
             params.orientation && params.order_by
