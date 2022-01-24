@@ -13,7 +13,7 @@ export const CustomPagination = ({ dataCount, setdropdownParam, dropdownParam })
         setcurrentPage(Number(event.target.id));
         setdropdownParam({ ...dropdownParam, page: currentPage })
     };
-    console.log(currentPage,"onclick");
+    console.log(currentPage, "onclick");
     const pages = [];
     for (let i = 1; i <= Math.ceil(dataCount / itemsPerPage); i++) {
         pages.push(i);
@@ -26,8 +26,8 @@ export const CustomPagination = ({ dataCount, setdropdownParam, dropdownParam })
             setminPageNumberLimit(minPageNumberLimit + pageNumberLimit);
         }
     };
-    console.log(currentPage,"arrowo");
-    const renderPageNumbers = pages.length > 0 && pages?.map((number,id) => {
+    console.log(currentPage, "arrowo");
+    const renderPageNumbers = pages.length > 0 && pages?.map((number, id) => {
         if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
             return (
                 <li
@@ -63,9 +63,7 @@ export const CustomPagination = ({ dataCount, setdropdownParam, dropdownParam })
     }
 
     return <div>
-
         <>
-
             <ul className="pageNumbers">
                 <li>
                     <ChevronLeft onClick={handlePrevbtn}
