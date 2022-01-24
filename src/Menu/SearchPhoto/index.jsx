@@ -56,7 +56,6 @@ export const SearchPhoto = ({ isPhoto }) => {
                 </div>
             }
 
-            {console.log(dropdownParam, "****", !isPhotodata)}
             {!isPhotodata && <CustomPagination dataCount={searchPhotoData?.total} setdropdownParam={setdropdownParam} dropdownParam={dropdownParam} />}
 
         </div>
