@@ -13,24 +13,11 @@ export const CustomPagination = ({ dataCount, setdropdownParam, dropdownParam })
         setcurrentPage(Number(event.target.id));
         setdropdownParam({ ...dropdownParam, page: currentPage })
     };
+    console.log(currentPage,"onclick");
     const pages = [];
     for (let i = 1; i <= Math.ceil(dataCount / itemsPerPage); i++) {
         pages.push(i);
     }
-    const renderPageNumbers = pages.length > 0 && pages?.map((number) => {
-        if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
-            return (
-                <li
-                    key={number}
-                    onClick={handleClick}
-                    className={currentPage === number ? "active" : null}
-                >
-                    {number}
-                </li>
-            );
-        }
-    });
-
     const handleNextbtn = () => {
         setcurrentPage(currentPage + 1);
         setdropdownParam({ ...dropdownParam, page: currentPage + 1 })
@@ -39,6 +26,21 @@ export const CustomPagination = ({ dataCount, setdropdownParam, dropdownParam })
             setminPageNumberLimit(minPageNumberLimit + pageNumberLimit);
         }
     };
+    console.log(currentPage,"arrowo");
+    const renderPageNumbers = pages.length > 0 && pages?.map((number,id) => {
+        if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
+            return (
+                <li
+                    key={number}
+                    id={number}
+                    onClick={handleClick}
+                    className={currentPage === number ? "active" : null}
+                >
+                    {number}
+                </li>
+            );
+        }
+    });
 
     const handlePrevbtn = () => {
         setcurrentPage(currentPage - 1);
