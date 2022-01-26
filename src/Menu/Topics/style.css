@@ -1,11 +1,17 @@
-.photo_gallery {
+.photo-gallery {
   column-count: 3;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
-@media screen and (max-width: 480px) {
-  .photo_gallery {
+@media screen and (max-width: 991px) {
+  .photo-gallery {
+    column-count: 2;
+    padding: 0 15px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .photo-gallery {
     column-count: 1;
     padding: 0 15px;
   }

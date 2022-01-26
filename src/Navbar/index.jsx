@@ -17,13 +17,13 @@ export const NavbarCom = () => {
             <Nav className="me-auto w-100">
                 <SearchBar round />
             </Nav>
-            <NavbarText className='d-none d-md-block explore_link'>
+            <NavbarText className='d-none d-md-block explore-link'>
                 Explore
             </NavbarText>
             <NavbarText>
                 <Menu id="Popover" type='button' className='m-3' />
                 <Popover placement="bottom" trigger="focus" isOpen={popoverOpen} target="Popover" toggle={toggle}>
-                    <PopoverBody className='popover_body' >
+                    <PopoverBody >
                         <Twitter />
                         <Facebook />
                         <Instagram />

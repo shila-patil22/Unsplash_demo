@@ -1,7 +1,7 @@
 .editorial {
   width:5% !important;
 }
-.navlink_menu {
+.navlink-menu {
   text-decoration: none;
   font-size: 14px;
   color: #767676;
@@ -14,14 +14,14 @@
 .slick-list {
   padding: 0 30px;
 }
-.navlink_menu:focus {
+.navlink-menu:focus {
   color: #111;
   border-bottom: 2px solid;
 }
-.navlink_menu:hover {
+.navlink-menu:hover {
   color: #111;
 }
-.navlink_menu_wrapper {
+.navlink-menu-wrapper {
   margin: 0 auto;
   box-shadow: 0 4px 12px #00000014, 0 0 1px #0100001a;
   padding: 0 20px;
@@ -30,8 +30,13 @@
   align-items: center;
   flex-wrap: nowrap;
   width: 100%;
+  position: sticky;
+  background: #fff;
+  top: 80px;
+  z-index: 1;
+  
 }
-.all_menu_container {
+.all-menu-container {
   width: 95% !important;
   margin: 0 auto;
   text-align: center;

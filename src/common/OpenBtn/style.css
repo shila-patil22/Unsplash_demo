@@ -4,9 +4,8 @@
     width: 5px;
     padding: 4px;
     margin: 4px;
-
 }
-.open_btn {
+.open-btn {
     align-items: center;
     border-radius: 4px;
     display: inline-flex;
@@ -16,5 +15,5 @@
     cursor: pointer;
 }
 .red{
-    background-color: rgb(233, 80, 80);
+    background-color: rgb(226, 37, 37);
 }

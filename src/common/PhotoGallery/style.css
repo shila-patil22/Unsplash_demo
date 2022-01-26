@@ -1,8 +1,27 @@
-.topic_photos_wrapper {
+.topic-photos-wrapper {
   max-width: 100% !important;
   width: 100% !important;
   display: block !important;
   cursor: zoom-in;
+  position: relative;
+}
+.topic-photos-wrapper:hover {
+  opacity: 0.8;
+}
+.topic-photos-wrapper:hover .like-btn-wrapper {
+  display: block;
+}
+.like-btn-wrapper {
+  position: absolute;
+  top: 15px;
+  right: 12px;
+  display: none;
+}
+.like-btn-wrapper button {
+  border: none;
+  padding: 7px;
+  border-radius: 5px;
+  margin: 5px;
 }
 .modal-dialog {
   max-width: 1500px !important;

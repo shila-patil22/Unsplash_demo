@@ -1,33 +1,24 @@
-import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'react-feather';
 import './style.css'
 
-export const CustomPagination = ({ dataCount, setdropdownParam, dropdownParam }) => {
-    const [currentPage, setcurrentPage] = useState(1);
-    const itemsPerPage = 10;
-    const pageNumberLimit = 10;
-    const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(10);
-    const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
+export const CustomPagination = ({ setdropdownParam, dropdownParam, setcurrentPage, currentPage, totalPages, maxPageNumberLimit, setmaxPageNumberLimit, minPageNumberLimit, setminPageNumberLimit }) => {
 
+    const itemsPerPage = 10;
     const handleClick = (event) => {
-        setcurrentPage(Number(event.target.id));
-        setdropdownParam({ ...dropdownParam, page: currentPage })
+        setcurrentPage(Number(event.target.id))
+        setdropdownParam({ ...dropdownParam, page: event.target.id })
     };
-    console.log(currentPage, "onclick");
-    const pages = [];
-    for (let i = 1; i <= Math.ceil(dataCount / itemsPerPage); i++) {
-        pages.push(i);
-    }
+    const totalPagesData = new Array(totalPages).fill().map((val, idx) => idx+1)
+
     const handleNextbtn = () => {
         setcurrentPage(currentPage + 1);
         setdropdownParam({ ...dropdownParam, page: currentPage + 1 })
         if (currentPage + 1 > maxPageNumberLimit) {
-            setmaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
-            setminPageNumberLimit(minPageNumberLimit + pageNumberLimit);
+            setmaxPageNumberLimit(maxPageNumberLimit + itemsPerPage);
+            setminPageNumberLimit(minPageNumberLimit + itemsPerPage);
         }
     };
-    console.log(currentPage, "arrowo");
-    const renderPageNumbers = pages.length > 0 && pages?.map((number, id) => {
+    const renderPageNumbers = totalPagesData.length > 0 && totalPagesData?.map((number) => {
         if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
             return (
                 <li
@@ -46,14 +37,14 @@ export const CustomPagination = ({ dataCount, setdropdownParam, dropdownParam })
         setcurrentPage(currentPage - 1);
         setdropdownParam({ ...dropdownParam, page: currentPage - 1 })
 
-        if ((currentPage - 1) % pageNumberLimit === 0) {
-            setmaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
-            setminPageNumberLimit(minPageNumberLimit - pageNumberLimit);
+        if ((currentPage - 1) % itemsPerPage === 0) {
+            setmaxPageNumberLimit(maxPageNumberLimit - itemsPerPage);
+            setminPageNumberLimit(minPageNumberLimit - itemsPerPage);
         }
     };
 
     let pageIncrementBtn = null;
-    if (pages.length > maxPageNumberLimit) {
+    if (totalPagesData.length > maxPageNumberLimit) {
         pageIncrementBtn = <li onClick={handleNextbtn}> ... </li>;
     }
 
@@ -64,20 +55,26 @@ export const CustomPagination = ({ dataCount, setdropdownParam, dropdownParam })
 
     return <div>
         <>
-            <ul className="pageNumbers">
+            <ul className="page-numbers">
                 <li>
-                    <ChevronLeft onClick={handlePrevbtn}
-                        disabled={currentPage === pages[0] ? true : false} />
+                    <button
+                        onClick={handlePrevbtn}
+                        disabled={currentPage === totalPagesData[0] ? true : false}
+                    >
+                        <ChevronLeft />
+                    </button>
 
                 </li>
                 {pageDecrementBtn}
                 {renderPageNumbers}
                 {pageIncrementBtn}
                 <li>
-                    <ChevronRight
+                    <button
                         onClick={handleNextbtn}
-                        disabled={currentPage === pages[pages.length - 1] ? true : false}
-                    />
+                        disabled={currentPage === totalPagesData[totalPagesData.length - 1] ? true : false}
+                    >
+                        <ChevronRight />
+                    </button>
                 </li>
             </ul>
         </>

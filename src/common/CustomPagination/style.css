@@ -1,4 +1,4 @@
-.pageNumbers {
+.page-numbers {
   display: flex;
   justify-content: space-between;
   list-style: none;
@@ -8,8 +8,16 @@
   cursor: pointer;
   color: rgb(70, 67, 67);
 }
-.pageNumbers li.active {
+.page-numbers li.active {
   padding: 0 7px;
   color: black;
   font-weight: 700;
+  background-color: #eee;
+}
+
+button {
+  border: none;
+}
+ul.page-numbers{
+  padding: 0;
 }

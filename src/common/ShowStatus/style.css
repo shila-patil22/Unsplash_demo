@@ -1,4 +1,4 @@
-.showstatus_wrapper {
+.showstatus-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +9,7 @@
   margin: 10px;
   border-radius: 4px;
 }
-.showstatus_row {
+.showstatus-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,7 +19,7 @@ hr {
   margin: 0.4rem 0;
 }
 @media screen and (max-width: 480px) {
-  .showstatus_wrapper {
+  .showstatus-wrapper {
     width: 261px;
     padding: 10px;
   }

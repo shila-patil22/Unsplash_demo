@@ -1,4 +1,4 @@
-.explore_link {
+.explore-link {
   padding: 0 15px;
   display: flex;
   align-items: center;
@@ -14,4 +14,10 @@
 .popover_body {
   width: 150px;
   height: 60px;
+}
+.navbar {
+  position: sticky;
+  background: #fff;
+  top: 0;
+  z-index: 1;
 }

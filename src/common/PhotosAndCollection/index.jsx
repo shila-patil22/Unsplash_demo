@@ -21,20 +21,20 @@ export const PhotosAndCollection = ({ setdropdownParam, dropdownParam }) => {
     return (
         <div className='justify-content-between d-flex flex-lg-nowrap flex-wrap flex-sm-wrap flex-md-nowrap border-bottom align-items-center m-3'>
             <div className='d-flex'>
-                <div className="search_menu ms-5" onClick={() => setphotoCollection(true)}>
-                    <Image className='me-2' color='#d1d1d1' width='18px' />
+                <div className="search-menu " onClick={() => setphotoCollection(true)}>
+                    <Image className='img-coll-icon' />
                     <Link to={`/s/photos/${photo}`} className='text-decoration-none link-secondary'>Photos 3.5k</Link>
                 </div>
-                <div className="search_menu ms-5" onClick={() => setphotoCollection(false)} >
-                    <Layers className='me-2' color='#d1d1d1' width='18px' />
+                <div className="search-menu " onClick={() => setphotoCollection(false)} >
+                    <Layers className='img-coll-icon' />
                     <Link to={`/s/collections/${photo}`} className='text-decoration-none link-secondary'>Collection 9.8k</Link>
                 </div>
             </div>
-            <div className="mx-2 d-flex" >
+            <div className=" d-flex justify-content-end pb-3 ps-4" >
                 {
                     photoCollection &&
                     <>
-                        {clear && <div style={{ margin: '0 10px', cursor: 'pointer' }} onClick={clearState}>Clear</div>}
+                        {clear && <div className='' style={{ margin: '0 10px', cursor: 'pointer' }} onClick={clearState}>Clear</div>}
                         <PhotoOrientationColor title="Any Orientation" items={orientationItem} setdropdownParam={setdropdownParam} dropdownParam={dropdownParam} setClear={setClear} clearState={setClearData} clearBtn={clearData} />
                         <PhotoOrientationColor title="Sort By" items={colorItem} setdropdownParam={setdropdownParam} dropdownParam={dropdownParam} setClear={setClear} clearState={setClearData} clearBtn={clearData} />
                     </>

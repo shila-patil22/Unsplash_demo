@@ -1,4 +1,4 @@
-.searchbar_input_wrapper {
+.searchbar-input-wrapper {
   max-width: 950px;
   width: 100%;
   color: #111;
@@ -12,7 +12,7 @@
   align-items: center;
   font-size: 14px;
 }
-.searchbar_input_wrapper.square {
+.searchbar-input-wrapper.square {
   border-radius: 4px;
   box-shadow: 0 0 0 5px #0000001a;
   height: 54px;
@@ -20,18 +20,18 @@
   max-width: 870px;
   width: 100%;
 }
-.searchbar_input {
+.searchbar-input {
   width: 100%;
 }
-.searchbar_input_wrapper:hover {
+.searchbar-input-wrapper:hover {
   border-color: #d1d1d1;
   background-color: #eee;
 }
-.searchbar_input_wrapper:focus-within {
+.searchbar-input-wrapper:focus-within {
   background-color: #fff;
   border-color: #d1d1d1;
 }
-.searchbar_input {
+.searchbar-input {
   flex-grow: 1;
   border: none;
   width: 100%;
@@ -39,7 +39,7 @@
   background: transparent;
   font-size: 14px;
 }
-.searchbar_input:focus-within {
+.searchbar-input:focus-within {
   outline: none;
 }
 /* ul.me-auto.nav {

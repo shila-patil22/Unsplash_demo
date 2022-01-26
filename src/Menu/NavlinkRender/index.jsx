@@ -44,19 +44,19 @@ const settings = {
     ]
 };
 export const NavlinkRender = () => {
-    const { data } = useGetUnsplashnByNameQuery()
+    const { data } = useGetUnsplashnByNameQuery({params:"topics"})
 
     return (
-        <div className='navlink_menu_wrapper row flex-nowrap'>
+        <div className='navlink-menu-wrapper  flex-nowrap'>
             <div className="editorial border-end pe-3  ">
-                <NavLink to="/" className="navlink_menu" >Editorial </NavLink>
+                <NavLink to="/" className="navlink-menu" >Editorial </NavLink>
             </div>
-            <div className="all_menu_container">
+            <div className="all-menu-container">
                 <Slider {...settings}>
                     {
                         data?.map((topicLink, i) => {
                             return (
-                                <NavLink key={i} to={`/t/${topicLink.slug}`} className="navlink_menu">{topicLink.title}</NavLink>
+                                <NavLink key={i} to={`/t/${topicLink.slug}`} className="navlink-menu">{topicLink.title}</NavLink>
                             )
                         })
                     }
