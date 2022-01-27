@@ -6,9 +6,8 @@ export const AppLayout = ({ children }) => {
     const [isHeaderVisible, setIsHeaderVisible] = useState(true)
     const location = useLocation()
     useEffect(() => {
-        const loc = location.pathname.split('/')[2]
-        
-        if (loc) {
+        const loc = location.pathname.split('/')[1]
+        if (loc==='s'|| loc==='collections') {
             setIsHeaderVisible(false)
         }
     }, [location])

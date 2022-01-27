@@ -1,10 +1,15 @@
-.search_menu {
+.search-menu {
   display: flex;
 }
-.search_menu:focus-within {
+.search-menu:focus-within {
   border-bottom: 2px solid #111;
   color: #111;
 }
 a.text-decoration-none.link-secondary {
   padding-bottom: 16px;
+}
+.img-coll-icon {
+  margin: 0 7px 0 17px;
+  color:#d1d1d1;
+  width:18px
 }

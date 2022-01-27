@@ -1,15 +1,14 @@
-import React from 'react'
 import { useParams } from 'react-router-dom';
 import { PhotoGallery } from '../../common/PhotoGallery';
 import { ShowStatus } from '../../common/ShowStatus';
 import { TopicDesc } from '../../common/TopicDesc';
-import { useGetUnsplashTopicDescQuery, useGetUnsplashTopicPhotosQuery } from '../../Redux/reduxApiCalling';
+import { useGetUnsplashnByNameQuery } from '../../Redux/reduxApiCalling';
 import './style.css'
 
 export const Topics = () => {
     const { topics } = useParams()
-    const { data: topicDesc, isLoading } = useGetUnsplashTopicDescQuery(topics)
-    const { data: topicPhotos, isLoading: isPhotos } = useGetUnsplashTopicPhotosQuery(topics)
+    const { data: topicDesc, isLoading } = useGetUnsplashnByNameQuery({params:`topics/${topics}`})
+    const { data: topicPhotos, isLoading: isPhotos } = useGetUnsplashnByNameQuery({params:`topics/${topics}/photos/`})
 
     return (
         !isLoading ?
@@ -18,7 +17,7 @@ export const Topics = () => {
                     <TopicDesc title={topicDesc.title} description={topicDesc.description} />
                     <ShowStatus statusImgsData={topicDesc} />
                 </div>
-                <div className="photo_gallery">
+                <div className="photo-gallery">
                     {
                         !isPhotos && topicPhotos.map((photos, i) => {
                             return (

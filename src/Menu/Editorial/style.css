@@ -1,4 +1,4 @@
-.hero_img {
+.hero-img {
   background-image: url("https://images.unsplash.com/photo-1640374370020-f9d527a6918f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1vZi10aGUtZGF5fHx8fGVufDB8fHx8&auto=format%2Ccompress&fit=crop&w=1000&h=1000");
   min-height: 600px;
   background-position: center;
@@ -7,7 +7,7 @@
   background-size: cover;
   position: relative;
 }
-.hero_text {
+.hero-text {
   padding: 0 15px;
   max-width: 700px;
   width: 100%;
@@ -17,26 +17,26 @@
   transform: translate(-50%, -50%);
   color: white;
 }
-.hero_header {
+.hero-header {
   font-size: 46px;
   line-height: 1.2;
   font-weight: 700;
 }
-.hero_sub_header {
+.hero-sub-header {
   margin-bottom: 0;
   margin-top: 16px;
   font-size: 18px;
 }
-.hero_body_text {
+.hero-body-text {
   font-size: 18px;
 }
-.trending_link {
+.trending-link {
   color: #fffc;
   text-decoration: none;
   text-transform: lowercase;
   margin: 10px 5px;
 }
-.trending_link:hover {
+.trending-link:hover {
   text-decoration: underline;
   color: #fff;
 }
