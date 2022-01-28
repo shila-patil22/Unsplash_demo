@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { NavlinkRender } from './Menu/NavlinkRender'
+import { TopicsLink } from './Menu/TopicsLink'
 
 export const AppLayout = ({ children }) => {
     const [isHeaderVisible, setIsHeaderVisible] = useState(true)
@@ -14,7 +14,7 @@ export const AppLayout = ({ children }) => {
     return (
         <>
             {
-                isHeaderVisible && <NavlinkRender />
+                isHeaderVisible && <TopicsLink />
             }
             {children}
         </>

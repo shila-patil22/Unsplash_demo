@@ -1,5 +1,5 @@
 .editorial {
-  width:5% !important;
+  width: 5% !important;
 }
 .navlink-menu {
   text-decoration: none;
@@ -34,7 +34,6 @@
   background: #fff;
   top: 80px;
   z-index: 1;
-  
 }
 .all-menu-container {
   width: 95% !important;
@@ -65,4 +64,15 @@
   align-items: center !important;
   display: flex;
   justify-content: space-between;
+}
+@media screen and (max-width: 767px) {
+  .editorial {
+    width: 10% !important;
+  }
+  .all-menu-container {
+    width: 75% !important;
+  }
+  .navlink-menu-wrapper {
+    padding: 0 10px;
+  }
 }

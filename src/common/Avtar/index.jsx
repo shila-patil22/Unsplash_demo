@@ -1,4 +1,4 @@
-export const ShowStatusImges = ({ imgsrc }) => {
+export const Avtar = ({ imgsrc }) => {
 
     return (
         <div className='d-flex justify-content-end w-50'>

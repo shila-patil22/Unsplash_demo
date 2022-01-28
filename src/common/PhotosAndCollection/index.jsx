@@ -5,14 +5,15 @@ import { Link } from 'react-router-dom'
 import { PhotoOrientationColor } from '../PhotoOrientationColor'
 import './style.css'
 
-export const PhotosAndCollection = ({ setdropdownParam, dropdownParam }) => {
+export const PhotosAndCollection = ({ setParam, param }) => {
 
     const [photoCollection, setphotoCollection] = useState(true)
     const [clearData, setClearData] = useState(false)
     const [clear, setClear] = useState(false)
     const clearState = () => {
         setClearData(true)
-        setdropdownParam({ ...dropdownParam, orientation: '', order_by: '' })
+        setParam({ ...param, orientation: '', order_by: '' })
+        setClear(false)
     }
 
     const { photo } = useParams()
@@ -35,8 +36,8 @@ export const PhotosAndCollection = ({ setdropdownParam, dropdownParam }) => {
                     photoCollection &&
                     <>
                         {clear && <div className='' style={{ margin: '0 10px', cursor: 'pointer' }} onClick={clearState}>Clear</div>}
-                        <PhotoOrientationColor title="Any Orientation" items={orientationItem} setdropdownParam={setdropdownParam} dropdownParam={dropdownParam} setClear={setClear} clearState={setClearData} clearBtn={clearData} />
-                        <PhotoOrientationColor title="Sort By" items={colorItem} setdropdownParam={setdropdownParam} dropdownParam={dropdownParam} setClear={setClear} clearState={setClearData} clearBtn={clearData} />
+                        <PhotoOrientationColor title="Any Orientation" items={orientationItem} setParam={setParam} param={param} setClear={setClear} clearState={setClearData} clearBtn={clearData} />
+                        <PhotoOrientationColor title="Sort By" items={colorItem} setParam={setParam} param={param} setClear={setClear} clearState={setClearData} clearBtn={clearData} />
                     </>
                 }
             </div>

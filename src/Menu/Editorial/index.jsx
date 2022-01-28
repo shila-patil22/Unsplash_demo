@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 import { PhotoGallery } from '../../common/PhotoGallery'
 import { SearchBar } from '../../common/Searchbar'
-import { useGetUnsplashnByNameQuery } from '../../Redux/reduxApiCalling'
+import { useGetUnsplashRecordQuery } from '../../Redux/unsplashApi'
 import './style.css'
 
 export const Editorial = () => {
-    const { data: unsplashDataPhotos, isloading } = useGetUnsplashnByNameQuery({params:'photos'})
+    const { data: unsplashDataPhotos, isloading } = useGetUnsplashRecordQuery({ entity: 'photos' })
     return (
         <>
             <div className="hero-img mb-5">
@@ -21,7 +21,7 @@ export const Editorial = () => {
                             <li className="d-inline"><Link to="#" className="trending-link">Wallpapers</Link></li>
                             <li className="d-inline"><Link to="#" className="trending-link">Backgrounds</Link></li>
                             <li className="d-inline"><Link to="#" className="trending-link">Happy</Link></li>
-                            <li className="d-inline"><Link to="#" className="trending_link">Love</Link></li>
+                            <li className="d-inline"><Link to="#" className="trending-link">Love</Link></li>
                         </ul>
                     </div>
                 </div>

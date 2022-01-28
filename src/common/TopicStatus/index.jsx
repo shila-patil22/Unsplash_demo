@@ -1,9 +1,9 @@
 import { Image, User, Users, Zap } from 'react-feather'
-import { OpenBtn } from '../OpenBtn'
-import { ShowStatusImges } from '../ShowStatusImges'
+import { Badge } from '../Badge'
+import { Avtar } from '../Avtar'
 import './style.css'
 
-export const ShowStatus = ({ statusImgsData }) => {
+export const TopicStatus = ({ statusImgsData }) => {
     return (
         <div className="showstatus-wrapper row">
             <div className="showstatus-row ">
@@ -11,7 +11,7 @@ export const ShowStatus = ({ statusImgsData }) => {
                     <Zap color='#d1d1d1' width='18px' />
                     <span className='ps-2'>Status</span>
                 </div>
-                <OpenBtn statusImgsData={statusImgsData} />
+                <Badge statusImgsData={statusImgsData} />
             </div>
             <hr />
             <div className="showstatus-row ">
@@ -19,7 +19,7 @@ export const ShowStatus = ({ statusImgsData }) => {
                     <User color='#d1d1d1' width='18px' />
                     <span className='ps-2'>Curator</span>
                 </div>
-                <ShowStatusImges imgsrc={statusImgsData.owners} />
+                <Avtar imgsrc={statusImgsData.owners} />
             </div>
             <hr />
             <div className="showstatus-row ">
@@ -36,7 +36,7 @@ export const ShowStatus = ({ statusImgsData }) => {
                     <span className='ps-2'>Top contributors</span>
                 </div>
                 <div className='d-flex justify-content-end w-50'>
-                    <ShowStatusImges imgsrc={statusImgsData.top_contributors} />
+                    <Avtar imgsrc={statusImgsData.top_contributors} />
                 </div>
             </div>
 
