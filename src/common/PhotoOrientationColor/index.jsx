@@ -3,11 +3,11 @@ import { ChevronDown, CreditCard, Smartphone, Square } from 'react-feather';
 import { ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 import './style.css'
 
-export const PhotoOrientationColor = ({ title, items, setdropdownParam, dropdownParam, clearState, setClear, clearBtn }) => {
+export const PhotoOrientationColor = ({ title, items, setParam, param, clearState, setClear, clearBtn }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [getTitle, setGetTitle] = useState(title)
     const checkDropdown = (item) => {
-        title === "Any Orientation" ? setdropdownParam({ ...dropdownParam, orientation: item.label }) : setdropdownParam({ ...dropdownParam, order_by: item.label })
+        title === "Any Orientation" ? setParam({ ...param, orientation: item.label }) : setParam({ ...param, order_by: item.label })
         setGetTitle(item.value)
         setClear(true)
     }

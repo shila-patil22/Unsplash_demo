@@ -1,6 +1,6 @@
 import './style.css'
 
-export const OpenBtn = ({ statusImgsData }) => {
+export const Badge = ({ statusImgsData }) => {
 
     const status = statusImgsData.status === 'closed'
     return (

@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom'
 import { CollectionImgs } from '../../common/CollectionImgs'
 import { PhotoGallery } from '../../common/PhotoGallery'
 import { PhotosAndCollection } from '../../common/PhotosAndCollection'
-import { CustomPagination } from '../../common/CustomPagination'
-import { useLazyGetUnsplashSearchPhotosQuery, useGetUnsplashnByNameQuery } from '../../Redux/reduxApiCalling'
+import { Pagination } from '../../common/Pagination'
+import { useLazyGetUnsplashSearchPhotosQuery, useGetUnsplashRecordQuery } from '../../Redux/unsplashApi'
 import { TailSpin } from 'react-loader-spinner'
 import './style.css'
 
@@ -14,31 +14,30 @@ export const SearchPhoto = ({ isPhoto }) => {
     const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(10);
     const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
     const { photo } = useParams()
-    const [dropdownParam, setdropdownParam] = useState({ query: photo })
-    const { data: searchCollectionData, isLoading: isCollection } = useGetUnsplashnByNameQuery({ params: 'search/collections', query: photo })
+    const [param, setParam] = useState({ query: photo })
+    const { data: searchCollectionData, isLoading: isCollection } = useGetUnsplashRecordQuery({ entity: 'search/collections', query: photo })
     const [getData, { data: searchPhotoData, isLoading: isPhotodata }] = useLazyGetUnsplashSearchPhotosQuery(photo);
 
     useEffect(() => {
-        getData(dropdownParam)
-    }, [dropdownParam])
+        getData(param)
+    }, [param])
 
     useEffect(() => {
-        setdropdownParam({ ...dropdownParam, query: photo })
+        setParam({ ...param, query: photo })
     }, [photo])
-
     return (
         <div>
-            <PhotosAndCollection setdropdownParam={setdropdownParam} dropdownParam={dropdownParam} />
+            <PhotosAndCollection setParam={setParam} param={param} />
             <h1 className='text-capitalize w-75 mx-auto fw-bold'>{photo}</h1>
             {
                 isPhoto ?
                     <>
-                        {!isPhotodata && <CustomPagination
+                        {!isPhotodata && <Pagination
                             setcurrentPage={setcurrentPage}
                             currentPage={currentPage}
                             totalPages={searchPhotoData?.total_pages}
-                            setdropdownParam={setdropdownParam}
-                            dropdownParam={dropdownParam}
+                            setParam={setParam}
+                            param={param}
                             maxPageNumberLimit={maxPageNumberLimit}
                             setmaxPageNumberLimit={setmaxPageNumberLimit}
                             minPageNumberLimit={minPageNumberLimit}
@@ -49,7 +48,7 @@ export const SearchPhoto = ({ isPhoto }) => {
                             {
                                 !isPhotodata ? searchPhotoData?.results?.map((photos, i) => {
                                     return (
-                                        <PhotoGallery key={i} imgurls={photos?.urls?.regular} imgId={photos?.id} />
+                                        <PhotoGallery key={i} imgurls={photos?.urls?.regular} username={photos?.user?.first_name} userProfile={photos?.user?.profile_image?.small} imgId={photos?.id} />
                                     )
                                 }) : <TailSpin
                                     heigth="100"
@@ -59,12 +58,12 @@ export const SearchPhoto = ({ isPhoto }) => {
                                 />
                             }
                         </div>
-                        {!isPhotodata && <CustomPagination
+                        {!isPhotodata && <Pagination
                             setcurrentPage={setcurrentPage}
                             currentPage={currentPage}
                             totalPages={searchPhotoData?.total_pages}
-                            setdropdownParam={setdropdownParam}
-                            dropdownParam={dropdownParam}
+                            setParam={setParam}
+                            param={param}
                             maxPageNumberLimit={maxPageNumberLimit}
                             setmaxPageNumberLimit={setmaxPageNumberLimit}
                             minPageNumberLimit={minPageNumberLimit}

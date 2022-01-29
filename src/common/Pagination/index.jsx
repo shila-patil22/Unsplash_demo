@@ -1,23 +1,14 @@
 import { ChevronLeft, ChevronRight } from 'react-feather';
 import './style.css'
 
-export const CustomPagination = ({ setdropdownParam, dropdownParam, setcurrentPage, currentPage, totalPages, maxPageNumberLimit, setmaxPageNumberLimit, minPageNumberLimit, setminPageNumberLimit }) => {
+export const Pagination = ({ setParam, param, setcurrentPage, currentPage, totalPages, maxPageNumberLimit, setmaxPageNumberLimit, minPageNumberLimit, setminPageNumberLimit }) => {
 
     const itemsPerPage = 10;
     const handleClick = (event) => {
         setcurrentPage(Number(event.target.id))
-        setdropdownParam({ ...dropdownParam, page: event.target.id })
+        setParam({ ...param, page: event.target.id })
     };
-    const totalPagesData = new Array(totalPages).fill().map((val, idx) => idx+1)
-
-    const handleNextbtn = () => {
-        setcurrentPage(currentPage + 1);
-        setdropdownParam({ ...dropdownParam, page: currentPage + 1 })
-        if (currentPage + 1 > maxPageNumberLimit) {
-            setmaxPageNumberLimit(maxPageNumberLimit + itemsPerPage);
-            setminPageNumberLimit(minPageNumberLimit + itemsPerPage);
-        }
-    };
+    const totalPagesData = new Array(totalPages).fill().map((val, idx) => idx + 1)
     const renderPageNumbers = totalPagesData.length > 0 && totalPagesData?.map((number) => {
         if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
             return (
@@ -33,9 +24,18 @@ export const CustomPagination = ({ setdropdownParam, dropdownParam, setcurrentPa
         }
     });
 
+    const handleNextbtn = () => {
+        setcurrentPage(currentPage + 1);
+        setParam({ ...param, page: currentPage + 1 })
+        if (currentPage + 1 > maxPageNumberLimit) {
+            setmaxPageNumberLimit(maxPageNumberLimit + itemsPerPage);
+            setminPageNumberLimit(minPageNumberLimit + itemsPerPage);
+        }
+    };
+
     const handlePrevbtn = () => {
         setcurrentPage(currentPage - 1);
-        setdropdownParam({ ...dropdownParam, page: currentPage - 1 })
+        setParam({ ...param, page: currentPage - 1 })
 
         if ((currentPage - 1) % itemsPerPage === 0) {
             setmaxPageNumberLimit(maxPageNumberLimit - itemsPerPage);

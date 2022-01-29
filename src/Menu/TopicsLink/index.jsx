@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { useGetUnsplashnByNameQuery } from '../../Redux/reduxApiCalling';
+import { useGetUnsplashRecordQuery } from '../../Redux/unsplashApi';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -27,7 +27,7 @@ const settings = {
         {
             breakpoint: 767,
             settings: {
-                slidesToShow: 2,
+                slidesToShow: 3,
                 slidesToScroll: 3,
                 arrows: false
             }
@@ -43,8 +43,8 @@ const settings = {
         }
     ]
 };
-export const NavlinkRender = () => {
-    const { data } = useGetUnsplashnByNameQuery({params:"topics"})
+export const TopicsLink = () => {
+    const { data } = useGetUnsplashRecordQuery({ entity: "topics" })
 
     return (
         <div className='navlink-menu-wrapper  flex-nowrap'>
